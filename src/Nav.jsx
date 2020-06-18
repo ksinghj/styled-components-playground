@@ -1,25 +1,40 @@
 import React from "react";
 import styled from "styled-components";
 
-const FlexItem = styled.div`
-  padding: 2em;
-`;
-
-const Box = styled.div`
+const Container = styled.div`
   display: flex;
   flex-direction: row;
-  width: 100vw;
+  justify-content: space-between;
+  padding: 2em;
+  box-shadow: 0px 7px 22px -9px rgba(0, 0, 0, 0.5);
+`;
+
+const Logo = styled.div`
+  color: grey;
+`;
+
+const Options = styled.div`
+  display: flex;
+  flex-direction: row;
   justify-content: space-evenly;
+`;
+
+const FlexItem = styled.div`
+  margin: 0 1em;
 `;
 
 class Nav extends React.Component {
   render() {
+    // TODO: props w bg image
     return (
-      <Box>
-        {this.props.children.map(option => {
-          return <FlexItem>{option}</FlexItem>;
-        })}
-      </Box>
+      <Container>
+        <Logo>web.dev</Logo>
+        <Options>
+          {this.props.children.map(option => {
+            return <FlexItem>{option}</FlexItem>;
+          })}
+        </Options>
+      </Container>
     );
   }
 }
